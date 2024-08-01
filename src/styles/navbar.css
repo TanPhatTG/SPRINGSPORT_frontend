@@ -1,0 +1,28 @@
+
+.navbar {
+    position: fixed;
+    top: 0; /* Cố định ở phía trên */
+    left: 0; /* Cố định ở bên trái */
+    width: 100%; /* Độ rộng 100% */
+    background-color: #1b98e0; /* Màu nền tùy chỉnh */
+    color: white; /* Màu chữ */
+    padding: 10px; /* Khoảng cách bên trong */
+    z-index: 1000;
+    border-radius: 0px 0px 7px 7px;
+}
+
+.search{
+    
+}
+
+i{
+   font-size: 25px;
+}
+
+#navbarSupportedContent a{
+    color: white;
+}
+
+img{
+    border-radius: 5px;
+}
