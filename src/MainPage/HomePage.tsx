@@ -1,19 +1,22 @@
 import React from "react";
 import { Banner } from "../components/Banner";
 import ProductList from "../components/ProductList";
-import Carousel1 from "../components/Carousel1";
+import SSCarousel from "../components/SSCarousel";
 import { getAllProduct } from "../api/ProductAPI";
+import { Pagination } from "../utils/Pagination";
 
 function HomePage(){
 
-    getAllProduct()
+    const pageURL = 
+
+    getAllProduct(1)
             .then()
             .catch()    
 
     return(
         <div>
             <Banner/>
-            <Carousel1 />
+            <SSCarousel />
            <ProductList/> 
         </div>
     );

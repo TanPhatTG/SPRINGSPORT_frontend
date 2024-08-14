@@ -54,9 +54,9 @@ function Navbar(){
 
           <ul className="navbar-nav me-1">
             <li className="nav-item">
-            <button  className="btn btn-default" style={{ color: 'white'}} type="submit">
+            <div  className="btn btn-default" style={{ color: 'white'}}>
               <i className="fa fa-search"></i>
-            </button>
+            </div>
             </li>
           </ul>
   

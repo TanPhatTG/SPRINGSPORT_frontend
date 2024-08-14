@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductModel from "../models/ProductModel";
 import ImageModel from "../models/ImageModel";
 import { getAllImage } from "../api/ImageAPI";
+import { CSSProperties } from 'react';
 
 interface ProductProps {
     product: ProductModel;
@@ -12,10 +13,16 @@ const ProductProps: React.FC<ProductProps> = ({ product }) => {
     const prdId : any = product.ProductId;
     
     const [imgList, setImgList] = useState<ImageModel[]>([]);
-    const [loadingBar, setLoadingBar] = useState(true);
+    const [loadingBar, setLoadingBar] = useState(false);
     const [error, setError] = useState<null>();
 
-    
+    const itemStyle: CSSProperties  = {
+        flex: '0 0 20%',
+       
+        textAlign: 'center',
+        padding: '10px',
+        boxSizing: 'border-box' as const, // Đảm bảo padding không ảnh hưởng đến kích thước tổng thể
+    };
 
     useEffect(() => {
         getAllImage(prdId).then(
@@ -26,7 +33,7 @@ const ProductProps: React.FC<ProductProps> = ({ product }) => {
         )
         .catch(
             error => {
-                setLoadingBar(false);
+                setLoadingBar(true);
                 setError(error.message);
             }
         );
@@ -56,17 +63,17 @@ const ProductProps: React.FC<ProductProps> = ({ product }) => {
     }
 
     return (
-        <div className="col-md-3 mt-2">
-            <div className="card">
+        <div className="col-md-3 mt-2 ">
+            <div className="card " style={{ width: '230px', ...itemStyle}}> 
                 <img
-                    src={imgList[0].imgResouce}
+                    src={imgList[0]?.imgResouce}
                     className="object-fit-contain"
-                    alt={imgList[0].imgName}
-                    // style={{ height: '200px' }}
+                    alt={imgList[0]?.imgName}
+                     style={{ height: '250px' }}
                 />
                 <div className="card-body">
                     <h5 className="card-title">{product.ProductName}</h5>
-                    <p className="card-text">{product.longDescription}</p>
+                    <p className="card-text">{product.shortDescription}</p>
                     <div className="row float-start">
                         <div className="price">
                             <span className="original-price">
